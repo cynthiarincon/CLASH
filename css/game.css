@@ -1,0 +1,61 @@
+/* BODY */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url(/assets/images/second-background.png);
+}
+
+/* MAIN */
+main{
+    background-color: #ff7518;
+    padding: 10%;
+    margin: 10%;
+    border-radius: 20px;
+}
+
+h1{
+    text-align: center;
+    font-family: "Bangers", system-ui;
+    font-size: 4rem;
+}
+h2{
+   text-align: center;
+    font-family: "Bangers", system-ui;
+    font-size: 5rem; 
+}
+
+.enter-choice{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+button{
+    display: flex;
+    justify-content: center;
+    max-width: 50%;
+    font-family: "Bangers", system-ui;
+    font-size: 1.5rem;
+
+}
+
+/* LINE BREAK */
+hr{
+    margin: 2rem;
+}
+
+/* CHOICE IMAGES - SMASH, WRAP, & SLICE*/
+.choices {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.choices img{
+    max-width: 100px;
+    height: auto;
+    border-radius: 3px;
+}
