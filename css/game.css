@@ -6,7 +6,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: url(/assets/images/second-background.png);
+    background-image: url(../assets/images/second-background.png);
 }
 
 /* MAIN */
@@ -17,30 +17,46 @@ main{
     border-radius: 20px;
 }
 
+/* SLOGAN CONTAINER */
 h1{
     text-align: center;
     font-family: "Bangers", system-ui;
-    font-size: 4rem;
+    font-size: 2rem;
+    margin: 0.5rem;
 }
 h2{
    text-align: center;
     font-family: "Bangers", system-ui;
-    font-size: 5rem; 
+    font-size: 2.8rem;
+    margin: 0.5rem;
 }
 
-.enter-choice{
+/* ENTER A CHOICE OR CHOOSE RANDOMIZE */
+.enter-choice, input{
     display: flex;
     flex-direction: column;
     text-align: center;
+    align-items: center;
+    font-size: 1rem;
+    margin: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+p{
+    margin: 10px;
 }
 
 button{
-    display: flex;
     justify-content: center;
     max-width: 50%;
     font-family: "Bangers", system-ui;
     font-size: 1.5rem;
-
+    background-color: rgb(255, 230, 0);
+    border-radius: 5px;
+}
+button:hover{
+    color: rgb(255, 230, 0);
+    background-color: black;
 }
 
 /* LINE BREAK */
@@ -58,4 +74,11 @@ hr{
     max-width: 100px;
     height: auto;
     border-radius: 3px;
+}
+.reset{
+    display: flex;
+    justify-items: center;
+    margin: 10% auto 5px;
+    font-size: 1.2rem;
+    background-color: rgb(255, 183, 0);
 }
