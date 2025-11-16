@@ -8,19 +8,33 @@
     <title>CLASH!</title>
 </head>
 <body>
+<!--NAVIGATION BAR-->
+ <nav>
+    <img src="assets/images/CLASH!-logo.png" alt="CLASH! logo">
+    <div class="dropdown-menu">☰</div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="game.html">Play</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+    </ul>
+ </nav>
+
+<!--- BACKGROUND MUSIC --->
     <audio id="music" controls autoplay loop>
-        <source src="/assets/sounds/track1.mp3" type="audio/mpeg">
+        <source src="assets/sounds/track1.mp3" type="audio/mpeg">
     </audio>
 
-    <nav>...</nav>
-
+<!-------------------------------------------------------------->
+<!-----------------------MAIN CONTAINER------------------------->
+<!-------------------------------------------------------------->
     <main>
+<!--- TITLE/SLOGAN AREA --->
         <div class="slogan">
         <h1>SMASH! WRAP! SLICE!</h1>
         <h2>. . CLASH!</h2>
         </div>
 
-<!-------ENTER A CHOICE OR CHOOSE RANDOMIZE---------->
+<!--- ENTER A CHOICE OR CHOOSE RANDOMIZE --->
         <div class="enter-choice">
             <label for="choice">PLAYER MUST CHOOSE ONE:
                 <br> SMASH, WRAP, OR SLICE</label>
@@ -29,8 +43,7 @@
             <p>or</p>
             <button class="randomize-btn">RANDOMIZE</button>
         </div>
-
-        <hr>
+<hr>  <!--LINE BREAK--> 
 
         <div class="choices">
             <img src="assets/images/rock.png" alt="rock">
@@ -38,12 +51,20 @@
             <img src="assets/images/scissor.png" alt="scissor">            
         </div>
         
+<!----- RESET BUTTON ----->
         <button class="reset" type="reset">RESET</button>
 
+<!--- RESULT DISPLAY --->
         <div class="result"></div>
     </main>
+<!-------------------------------------------------------------->
+<!----------------------MAIN CONTAINER END---------------------->
+<!-------------------------------------------------------------->
 
+<!----- FOOTER ----->
     <footer>...</footer>
+
+
     <script src="js/game.js"></script>
 </body>
 </html>

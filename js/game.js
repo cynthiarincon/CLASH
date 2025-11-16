@@ -1,62 +1,98 @@
-// SET MUSIC VOLUME TO 10% (0 = MUTED, 1 = FULL VOLUME) WHEN PAGE LOADS
-const music = document.getElementById("music");
+// MUSIC
+var music = document.getElementById("music");
 music.volume = 0.1;
-music.onplay();
 
+
+//DROPDOWN NAV
 document.addEventListener("DOMContentLoaded", () => {
-    // Grab the elements from HTML
-    const playerInput = document.getElementById("choice"); 
-    const clashBtn = document.querySelector(".class-btn"); 
-    const randomBtn = document.querySelector(".randomize-btn"); 
-    const resetBtn = document.querySelector(".reset"); 
-    const resultDiv = document.querySelector(".result"); 
+    const dropdown = document.querySelector(".dropdown-menu");
+    const navLinks = document.querySelector(".nav-links");
 
-    // Define allowed choices
-    const choices = ["smash", "wrap", "slice"];
-
-    // Validate input
-    function validateInput(input) {
-        return choices.includes(input);
-    }
-
-    // Random choice function
-    function getRandomChoice() {
-        const index = Math.floor(Math.random() * choices.length);
-        return choices[index];
-    }
-
-    // Determine winner
-    function determineWinner(player, computer) {
-        if (player === computer) return "It's a tie!";
-        if (
-            (player === "smash" && computer === "slice") ||
-            (player === "slice" && computer === "wrap") ||
-            (player === "wrap" && computer === "smash")
-        ) return "Player wins!";
-        return "Computer wins!";
-    }
-
-    // Button events
-    clashBtn.addEventListener("click", () => {
-        const playerChoice = playerInput.value.trim().toLowerCase();
-        if (!validateInput(playerChoice)) {
-            resultDiv.textContent = "Please type Smash, Wrap, or Slice!";
-            return;
-        }
-        const computerChoice = getRandomChoice();
-        const result = determineWinner(playerChoice, computerChoice);
-        resultDiv.textContent = `Player: ${playerChoice}, Computer: ${computerChoice}. ${result}`;
+    dropdown.addEventListener("click", () => {
+        navLinks.classList.toggle("show"); // toggle mobile menu
     });
+});
 
-    randomBtn.addEventListener("click", () => {
-        const playerChoice = getRandomChoice();
-        const computerChoice = getRandomChoice();
-        const result = determineWinner(playerChoice, computerChoice);
-        resultDiv.textContent = `Player (Random): ${playerChoice}, Computer: ${computerChoice}. ${result}`;
-    });
 
-    resetBtn.addEventListener("click", () => {
-        playerInput.value = "";
-        resultDiv.textContent = "";
-    });
+// ELEMENTS
+var playerInput = document.getElementById("choice");
+var clashBtn = document.querySelector(".class-btn");
+var randomBtn = document.querySelector(".randomize-btn");
+var resetBtn = document.querySelector(".reset");
+var resultDiv = document.querySelector(".result");
+
+// SOUNDS
+var rockSound = new Audio("assets/sounds/rock.mp3");
+var paperSound = new Audio("assets/sounds/paper.mp3");
+var sliceSound = new Audio("assets/sounds/slice.mp3");
+var winSound = new Audio("assets/sounds/win.mp3");
+var loseSound = new Audio("assets/sounds/lose.mp3");
+var tieSound = new Audio("assets/sounds/tie.mp3");
+
+// CHOICES
+var choices = ["smash", "wrap", "slice"];
+
+// HELPER FUNCTION SIMPLIFIED
+function getRandomChoice() {
+    var index = Math.floor(Math.random() * 3); // 0,1,2
+    return choices[index];
+}
+
+// DETERMINE WINNER SIMPLIFIED
+function determineWinner(player, computer) {
+    if (player === computer) return "Tie";
+    if (
+        (player === "smash" && computer === "slice") ||
+        (player === "slice" && computer === "wrap") ||
+        (player === "wrap" && computer === "smash")
+    ) return "Player";
+    else return "Computer";
+}
+
+// PLAY MOVE SOUND
+function playMoveSound(move) {
+    if (move === "smash") rockSound.play();
+    else if (move === "wrap") paperSound.play();
+    else if (move === "slice") sliceSound.play();
+}
+
+// PLAY RESULT SOUND
+function playResultSound(winner) {
+    if (winner === "Player") winSound.play();
+    else if (winner === "Computer") loseSound.play();
+    else if (winner === "Tie") tieSound.play();
+}
+
+// CLASH BUTTON
+clashBtn.addEventListener("click", function() {
+    var playerChoice = playerInput.value.toLowerCase().trim();
+    if (choices.indexOf(playerChoice) === -1) {
+        resultDiv.textContent = "Please type Smash, Wrap, or Slice!";
+        return;
+    }
+    var computerChoice = getRandomChoice();
+    var winner = determineWinner(playerChoice, computerChoice);
+    resultDiv.textContent = "Player: " + playerChoice + ", Computer: " + computerChoice + ". " + (winner === "Tie" ? "It's a tie!" : winner + " wins!");
+    
+    var winningMove = winner === "Player" ? playerChoice : (winner === "Computer" ? computerChoice : null);
+    if (winningMove) playMoveSound(winningMove);
+    playResultSound(winner);
+});
+
+// RANDOMIZE BUTTON
+randomBtn.addEventListener("click", function() {
+    var playerChoice = getRandomChoice();
+    var computerChoice = getRandomChoice();
+    var winner = determineWinner(playerChoice, computerChoice);
+    resultDiv.textContent = "Player (Random): " + playerChoice + ", Computer: " + computerChoice + ". " + (winner === "Tie" ? "It's a tie!" : winner + " wins!");
+    
+    var winningMove = winner === "Player" ? playerChoice : (winner === "Computer" ? computerChoice : null);
+    if (winningMove) playMoveSound(winningMove);
+    playResultSound(winner);
+});
+
+// RESET BUTTON
+resetBtn.addEventListener("click", function() {
+    playerInput.value = "";
+    resultDiv.textContent = "";
 });

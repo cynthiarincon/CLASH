@@ -1,5 +1,4 @@
-/* BODY AND MAIN  */
-
+/* BODY AND MAIN */
 body {
     margin: 0;
     padding: 0;
@@ -8,12 +7,15 @@ body {
     flex-direction: column;
     background-image: url(../assets/images/home-background.png);
     background-size: cover;
+    font-family: "Bangers", system-ui;
 }
 
 main {
     flex: 1;
-    align-content: center;
-    text-align: center; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 /* NAV BAR */
@@ -22,6 +24,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 20px;
 }
 
 nav img {
@@ -29,33 +32,70 @@ nav img {
     height: auto;
 }
 
+/* HAMBURGER MENU */
 .dropdown-menu {
-    font-size: 3rem;
+    font-size: 2.5rem;
+    cursor: pointer;
+    user-select: none;
 }
 
-ul {
-    display: none;
+/* NAV LINKS */
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none; /* hidden on mobile */
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    background-color: #000;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 10px;
+    text-align: center;
+    display: block;
+    text-transform: uppercase; /* capitalize text */
+}
+
+.nav-links li a:hover {
+    background-color: #e30b5d;
+}
+
+/* SHOW CLASS FOR MOBILE */
+.nav-links.show {
+    display: flex;
 }
 
 /* HEADER */
 header {
     background-color: #ff7518;
-    color: #000000;
+    color: #000;
     text-align: center;
-    font-family: "Bangers", system-ui;
-    font-weight:lighter;
-    padding: 0;
+    font-weight: lighter;
+    padding: 10px 20px;
 }
 
-/* PLAY BUTTON & DESCRIPTION*/
+header h1 {
+    margin: 0.5rem;
+    font-size: 2rem;
+}
+
+header h2 {
+    margin: 0.5rem;
+    font-size: 1.2rem;
+}
+
+/* PLAY BUTTON */
 .play-btn {
-    background-color: rgb(255, 255, 255);
-    color: #000000;
-    border: 1px solid rgb(255, 255, 255);
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #fff;
     border-radius: 20px;
     font-size: 1.5rem;
     padding: 1.5rem 2rem;
-    font-family: "Bangers", system-ui;
     text-decoration: none;
 }
 .play-btn:hover {
@@ -63,11 +103,12 @@ header {
 }
 
 /* FOOTER */
-footer{
+footer {
     background-color: #ffe135;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 10px;
 }
 
 footer img {
@@ -77,20 +118,19 @@ footer img {
 
 /* MEDIA QUERY */
 @media screen and (min-width: 767px){
-    .dropdown-menu{
-        display: none;
+    .dropdown-menu {
+        display: none; /* hide hamburger on desktop */
     }
-
-    header{
-        font-size: 1.1rem;
+    .nav-links {
+        display: flex !important;
+        flex-direction: row;
+        gap: 20px;
     }
-
-    .play-btn{
-        font-size: 3rem;
-        padding: 2.5rem 2.5rem;
+    .nav-links li a {
+        padding: 10px 20px;
     }
+    
+    header h1 { font-size: 3rem; }
+    header h2 { font-size: 1.5rem; }
+    .play-btn { font-size: 2rem; padding: 2rem 3rem; }
 }
-
-
-
-

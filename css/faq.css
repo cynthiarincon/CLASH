@@ -16,6 +16,59 @@ h2 {
 
 
 
+/* NAVIGATION BAR - MOBILE */
+nav {
+    background-color: #ffe135;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+nav img {
+    max-width: 80px;
+    height: auto;
+}
+
+/* nav links hidden on mobile */
+.nav-links {
+    list-style: none; /* remove bullets */
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    background-color: #000;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+}
+
+.nav-links li a:hover {
+    background-color: #e30b5d;
+}
+
+/* hamburger menu button */
+.dropdown-menu {
+    font-size: 2rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* show links when .show is added by JS */
+.nav-links.show {
+    display: flex;
+}
+
+
+
 /* MEDIA QUERY */
 @media screen and (min-width: 767px){
     body{
@@ -24,5 +77,20 @@ h2 {
 
     h2{
         font-size: 2.5rem;
+    }
+}
+    .dropdown-menu {
+        display: none;
+    }
+
+    /* show nav links horizontally */
+    .nav-links {
+        display: flex !important; /* force show */
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .nav-links li a {
+        padding: 10px 20px;
     }
 }

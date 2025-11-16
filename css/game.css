@@ -1,52 +1,102 @@
 /* BODY */
-/* -------------------- */
 body {
     margin: 0;
     padding: 0;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: stretch; /* stretch content horizontally */
+    justify-content: flex-start; /* start from top */
     background-image: url(../assets/images/second-background.png);
+    background-size: cover;
+    font-family: "Bangers", system-ui;
 }
 
 /* MUSIC */
-/* -------------------- */
 #music {
     opacity: 0.75;
-    margin: 15px;
+    margin: 15px auto;
+    display: block;
 }
 
 
-/* MAIN CONTAINER*/
-/* -------------------- */
-main{
-    background-color: #ff7518;
-    padding: 0;
+/* NAVIGATION BAR */
+nav {
+    width: 100%;
+    background-color: #ffe135;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+nav img {
+    max-width: 80px;
+    height: auto;
+}
+
+/* HAMBURGER MENU */
+.dropdown-menu {
+    font-size: 2.5rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* NAV LINKS */
+.nav-links {
+    list-style: none;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
     margin: 0;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 
-                0 0 0 5px rgb(188, 22, 125);
+    padding: 0;
 }
 
-/* SLOGAN / HEADER TEXT */
-/* -------------------- */
-h1{
+.nav-links li a {
+    text-decoration: none;
+    background-color: #000;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 10px;
     text-align: center;
-    font-family: "Bangers", system-ui;
-    font-size: 2rem;
-    margin: 0.5rem;
-}
-h2{
-   text-align: center;
-    font-family: "Bangers", system-ui;
-    font-size: 2.8rem;
-    margin: 0.5rem;
+    display: block;
+    text-transform: uppercase;
 }
 
-/* ENTER A CHOICE OR CHOOSE RANDOMIZE */
-/* -------------------- */
-.enter-choice, input{
+.nav-links li a:hover {
+    background-color: #e30b5d;
+}
+
+/* SHOW LINKS WHEN HAMBURGER CLICKED */
+.nav-links.show {
+    display: flex;
+}
+
+/* MAIN CONTAINER */
+main {
+    background-color: #ff7518;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7),
+                0 0 40px rgba(0, 0, 0, 0.5),
+                0 0 60px rgba(0, 0, 0, 0.3);
+    max-width: 900px;
+    width: 90%;
+}
+
+/* SLOGAN TEXT */
+h1, h2 {
+    text-align: center;
+    margin: 0.5rem;
+}
+h1 { font-size: 2rem; }
+h2 { font-size: 2.8rem; }
+
+/* PLAYER CHOICE */
+.enter-choice, input {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -56,48 +106,64 @@ h2{
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
 }
-p{
-    margin: 10px;
-}
 
-button{
+button {
     justify-content: center;
     max-width: 50%;
     font-family: "Bangers", system-ui;
     font-size: 1.5rem;
     background-color: rgb(255, 230, 0);
     border-radius: 5px;
+    margin: 5px 0;
 }
-button:hover{
+
+button:hover {
     color: rgb(255, 230, 0);
     background-color: black;
 }
 
-/* LINE BREAK */
-/* -------------------- */
-hr{
-    margin: 2rem;
-}
-
-/* CHOICE IMAGES - SMASH, WRAP, & SLICE*/
-/* -------------------- */
+/* CHOICE IMAGES */
 .choices {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin: 20px 0;
 }
-.choices img{
+
+.choices img {
     max-width: 100px;
     height: auto;
     border-radius: 3px;
 }
 
 /* RESET BUTTON */
-/* -------------------- */
-.reset{
+.reset {
     display: flex;
     justify-content: center;
-    margin: 10% auto 5px;
+    margin: 10px auto;
     font-size: 1.2rem;
     background-color: rgb(255, 183, 0);
 }
+
+/* RESULT DISPLAY */
+.result {
+    text-align: center;
+    font-family: "Bangers", system-ui;
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+/* MEDIA QUERY */
+@media screen and (min-width: 767px) {
+    .dropdown-menu {
+        display: none;
+    }
+
+    .nav-links {
+        display: flex !important;
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .nav-links li a {
+        paddin
