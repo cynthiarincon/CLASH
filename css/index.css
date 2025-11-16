@@ -44,6 +44,7 @@ header {
     text-align: center;
     font-family: "Bangers", system-ui;
     font-weight:lighter;
+    padding: 0;
 }
 
 /* PLAY BUTTON & DESCRIPTION*/
@@ -52,8 +53,8 @@ header {
     color: #000000;
     border: 1px solid rgb(255, 255, 255);
     border-radius: 20px;
-    font-size: 4rem;
-    padding: 3rem 4rem;
+    font-size: 1.5rem;
+    padding: 1.5rem 2rem;
     font-family: "Bangers", system-ui;
     text-decoration: none;
 }
@@ -73,6 +74,23 @@ footer img {
     max-width: 75px;
     height: auto;
 }
+
+/* MEDIA QUERY */
+@media screen and (min-width: 767px){
+    .dropdown-menu{
+        display: none;
+    }
+
+    header{
+        font-size: 1.1rem;
+    }
+
+    .play-btn{
+        font-size: 3rem;
+        padding: 2.5rem 2.5rem;
+    }
+}
+
 
 
 
