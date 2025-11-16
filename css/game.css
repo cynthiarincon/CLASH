@@ -1,4 +1,5 @@
 /* BODY */
+/* -------------------- */
 body {
     margin: 0;
     padding: 0;
@@ -9,15 +10,27 @@ body {
     background-image: url(../assets/images/second-background.png);
 }
 
-/* MAIN */
+/* MUSIC */
+/* -------------------- */
+#music {
+    opacity: 0.75;
+    margin: 15px;
+}
+
+
+/* MAIN CONTAINER*/
+/* -------------------- */
 main{
     background-color: #ff7518;
     padding: 0;
-    margin: 15%;
+    margin: 0;
     border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 
+                0 0 0 5px rgb(188, 22, 125);
 }
 
-/* SLOGAN CONTAINER */
+/* SLOGAN / HEADER TEXT */
+/* -------------------- */
 h1{
     text-align: center;
     font-family: "Bangers", system-ui;
@@ -32,6 +45,7 @@ h2{
 }
 
 /* ENTER A CHOICE OR CHOOSE RANDOMIZE */
+/* -------------------- */
 .enter-choice, input{
     display: flex;
     flex-direction: column;
@@ -60,11 +74,13 @@ button:hover{
 }
 
 /* LINE BREAK */
+/* -------------------- */
 hr{
     margin: 2rem;
 }
 
 /* CHOICE IMAGES - SMASH, WRAP, & SLICE*/
+/* -------------------- */
 .choices {
     display: flex;
     justify-content: space-around;
@@ -75,9 +91,12 @@ hr{
     height: auto;
     border-radius: 3px;
 }
+
+/* RESET BUTTON */
+/* -------------------- */
 .reset{
     display: flex;
-    justify-items: center;
+    justify-content: center;
     margin: 10% auto 5px;
     font-size: 1.2rem;
     background-color: rgb(255, 183, 0);

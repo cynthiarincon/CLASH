@@ -8,6 +8,10 @@
     <title>CLASH!</title>
 </head>
 <body>
+    <audio id="music" controls autoplay loop>
+        <source src="/assets/sounds/track1.mp3" type="audio/mpeg">
+    </audio>
+
     <nav>...</nav>
 
     <main>
@@ -20,7 +24,7 @@
         <div class="enter-choice">
             <label for="choice">PLAYER MUST CHOOSE ONE:
                 <br> SMASH, WRAP, OR SLICE</label>
-            <input type="text" id="choice" placeholder="Enter a choice" name="choice" maxlength="5ch">
+            <input type="text" id="choice" placeholder="Enter a choice" name="choice" maxlength="5">
             <button class="class-btn">CLASH!</button>
             <p>or</p>
             <button class="randomize-btn">RANDOMIZE</button>
@@ -31,14 +35,13 @@
         <div class="choices">
             <img src="assets/images/rock.png" alt="rock">
             <img src="assets/images/paper.jpg" alt="paper">
-            <img src="assets/images/scissor.png" alt="scissor">
-
-            
+            <img src="assets/images/scissor.png" alt="scissor">            
         </div>
         
         <button class="reset" type="reset">RESET</button>
     </main>
 
     <footer>...</footer>
+    <script src="js/game.js"></script>
 </body>
 </html>
